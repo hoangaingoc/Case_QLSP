@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Sản Phẩm</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h1 style="text-align: center">Quản Lý Sản Phẩm</h1>
+<button onclick="showHome()">Danh sách sản phẩm</button>
+|
+<button onclick="showFormAdd()">Thêm sản phẩm</button>
+|
+<button onclick="searchProduct()">Tìm kiếm</button>
+<div id="main">
+
+</div>
+
+
+<script src="Product.js"></script>
+<script src="Store.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
