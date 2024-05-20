@@ -1,6 +1,6 @@
 let myStore = new Store("Danh sách sản phẩm");
 
-function showHome() {
+function showHome(products) {
     document.getElementById("main").innerHTML = `
 <h2>Danh sách sản phẩm</h2>
     <table id="productTable">
@@ -15,7 +15,7 @@ function showHome() {
     </table>
     `
 
-    let list = myStore.listProduct;
+    let list = products || myStore.listProduct;
     let html = ``;
     for (let i = 0; i < list.length; i++) {
         html += `
@@ -31,7 +31,6 @@ function showHome() {
     }
     document.getElementById("listProduct").innerHTML = html;
 }
-
 
 function showFormUpdate(index) {
     let list = myStore.listProduct;
@@ -65,11 +64,13 @@ function removeProduct(index) {
 
 function showFormAdd() {
     document.getElementById("main").innerHTML = `
+    <h3>
     <input type="text" id="id" placeholder="Id">
     <input type="text" id="name" placeholder="Name">
     <input type="text" id="price" placeholder="Price">
     <input type="text" id="image" placeholder="Image">
     <button onclick="add()">Thêm sản phẩm</button>
+    </h3>
     `
 }
 
@@ -85,15 +86,17 @@ function add() {
 
 function searchProduct() {
     document.getElementById("main").innerHTML = `
+    <h3>
     <input type="text" id="find" placeholder="nhập tên sản phẩm cần tìm">
     <button onclick="search()">Tìm kiếm</button>
+    </h3>
     `
 }
 
 function search() {
-    let keyword = document.getElementById("find").value;
-        let filteredProducts = myStore.search(keyword);
-        showHome(filteredProducts);
-    }
+    let keyword = document.getElementById("find").value.toLowerCase();
+    let filteredProducts = myStore.search(keyword);
+    showHome(filteredProducts);
+}
 
 showHome();
